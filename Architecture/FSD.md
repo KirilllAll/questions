@@ -30,104 +30,120 @@
 - **Описание:** Этот слой содержит модули, представляющие ключевые бизнес-сущности приложения. Это могут быть объекты, такие как пользователи, товары, заказы и т. д. Здесь хранятся модели данных и бизнес-логика для работы с этими сущностями.
 - **Пример файловой структуры:**
 
-### 1. `shared` — Общие модули
-
-- **Описание:** Этот слой содержит переиспользуемый код, который не привязан к бизнес-логике или специфике приложения. Здесь могут находиться такие вещи, как общие библиотеки, UI-компоненты, утилиты и API-клиенты.
-- **Пример файловой структуры:**
-  src/
-  └── entities/
-  └── User/
-  ├── model/
-  │ ├── store.ts
-  │ └── actions.ts
-  ├── api/
-  │ └── fetchUser.ts
-  └── ui/
-  └── UserCard/
-  ├── UserCard.tsx
-  └── index.ts
+```plaintext
+src/
+└── entities/
+    └── User/
+        ├── model/
+        │   ├── store.ts
+        │   └── actions.ts
+        ├── api/
+        │   └── fetchUser.ts
+        └── ui/
+            └── UserCard/
+                ├── UserCard.tsx
+                └── index.ts
+```
 
 ### 3. `features` — Фичи (бизнес-функциональность)
 
 - **Описание:** Этот слой содержит действия или взаимодействия с пользователем, которые несут бизнес-ценность. Это могут быть такие функции, как поиск пользователей, добавление товаров в корзину, отправка комментариев.
 - **Пример файловой структуры:**
-  src/
-  └── features/
-  └── AddToCart/
-  ├── ui/
-  │ └── AddToCartButton.tsx
-  ├── model/
-  │ └── actions.ts
-  └── api/
-  └── addToCart.ts
+
+```plaintext
+src/
+└── features/
+    └── AddToCart/
+        ├── ui/
+        │   └── AddToCartButton.tsx
+        ├── model/
+        │   └── actions.ts
+        └── api/
+            └── addToCart.ts
+```
 
 ### 4. `widgets` — Виджеты (композиционные блоки)
 
 - **Описание:** Виджеты представляют собой композицию из сущностей и фич для создания самостоятельных интерфейсных блоков. Они могут содержать в себе логику отображения, состояния и взаимодействий.
 - **Пример файловой структуры:**
-  src/
-  └── widgets/
-  └── UserProfile/
-  ├── ui/
-  │ └── UserProfileCard.tsx
-  ├── model/
-  │ └── store.ts
-  └── lib/
-  └── getUserDetails.ts
+
+```plaintext
+src/
+└── widgets/
+    └── UserProfile/
+        ├── ui/
+        │   └── UserProfileCard.tsx
+        ├── model/
+        │   └── store.ts
+        └── lib/
+            └── getUserDetails.ts
+```
 
 ### 5. `pages` — Страницы
 
 - **Описание:** Страницы — это композиционные слои, собирающие в себе виджеты, фичи и сущности для создания полноценной страницы приложения. Они могут включать в себя логику рендеринга страниц и маршрутизацию.
 - **Пример файловой структуры:**
-  src/
-  └── pages/
-  └── HomePage/
-  ├── ui/
-  │ └── HomePageLayout.tsx
-  ├── model/
-  │ └── fetchHomeData.ts
-  └── widgets/
-  └── UserProfile/
-  └── index.ts
+
+```plaintext
+src/
+└── pages/
+    └── HomePage/
+        ├── ui/
+        │   └── HomePageLayout.tsx
+        ├── model/
+        │   └── fetchHomeData.ts
+        └── widgets/
+            └── UserProfile/
+                └── index.ts
+```
 
 ### 6. `processes` — Процессы
 
 - **Описание:** Процессы включают в себя сложные сценарии, которые могут затрагивать несколько страниц или шагов в приложении. Это, например, авторизация, процесс заказа или заполнение формы регистрации.
 - **Пример файловой структуры:**
-  src/
-  └── processes/
-  └── AuthProcess/
-  ├── ui/
-  │ └── AuthForm.tsx
-  ├── model/
-  │ └── authStore.ts
-  └── api/
-  └── login.ts
+
+```plaintext
+src/
+└── processes/
+    └── AuthProcess/
+        ├── ui/
+        │   └── AuthForm.tsx
+        ├── model/
+        │   └── authStore.ts
+        └── api/
+            └── login.ts
+```
 
 ### 7. `app` — Приложение
 
 - **Описание:** Это глобальные настройки приложения, провайдеры и общие конфигурации, такие как стили, настройки роутинга и общие хуки.
 - **Пример файловой структуры:**
-  src/
-  └── app/
-  ├── providers/
-  │ └── AppProvider.tsx
-  ├── routes/
-  │ └── index.tsx
-  └── styles/
-  └── global.css
+
+```plaintext
+src/
+└── app/
+    ├── providers/
+    │   └── AppProvider.tsx
+    ├── routes/
+    │   └── index.tsx
+    └── styles/
+        └── global.css
+```
 
 ## Слайсы (Slices)
 
 Слайсы — это логические разделения внутри слоев. Слайс группирует модули по предметной области или функциональности. Например, для слоя `entities`, слайс может представлять определённую бизнес-сущность, такую как `User` или `Product`. Для слоя `features` слайс может представлять конкретную фичу, например, `AddToCart`.
 
 **Пример:**
+
+```plaintext
 src/
 └── entities/
-└── User/ <-- это слайс
-├── model/
-├── ui/
-└── api/
+    └── User/ <-- это слайс
+        ├── model/
+        ├── ui/
+        └── api/
+```
 
 ## Сегменты (Segments)
 
@@ -141,37 +157,43 @@ src/
 `config` — конфигурации (например, настройки для `UI` или `API`).
 
 **Пример структуры с сегментами:**
+
+```plaintext
 src/
 └── features/
-└── AddToCart/
-├── ui/
-│ └── AddToCartButton.tsx
-├── model/
-│ ├── store.ts
-│ └── actions.ts
-├── api/
-│ └── addToCart.ts
-└── lib/
-└── calculateTotalPrice.ts
+    └── AddToCart/
+        ├── ui/
+        │   └── AddToCartButton.tsx
+        ├── model/
+        │   ├── store.ts
+        │   └── actions.ts
+        ├── api/
+        │   └── addToCart.ts
+        └── lib/
+            └── calculateTotalPrice.ts
+```
 
 ## Пример FSD-проекта в реальной жизни
 
 Предположим, у нас есть интернет-магазин. В нём могут быть сущности, такие как `Product`, `User`, и фичи, такие как `AddToCart` или `PlaceOrder`. Эти фичи могут быть соединены в виджеты, такие как `ProductCard` или `OrderSummary`, которые далее собираются в страницы (`ProductPage`, `CheckoutPage`).
 
 **Пример проектной структуры:**
+
+```plaintext
 src/
 ├── app/
-│ └── providers/
+│   └── providers/
 ├── shared/
-│ ├── ui/
-│ └── lib/
+│   ├── ui/
+│   └── lib/
 ├── entities/
-│ └── Product/
+│   └── Product/
 ├── features/
-│ └── AddToCart/
+│   └── AddToCart/
 ├── widgets/
-│ └── ProductCard/
+│   └── ProductCard/
 ├── pages/
-│ └── ProductPage/
+│   └── ProductPage/
 ├── processes/
-│ └── CheckoutProcess/
+│   └── CheckoutProcess/
+```
